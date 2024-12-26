@@ -84,6 +84,13 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- run lua in current file
+vim.keymap.set("n", "<leader>rf", "<CMD>source %<CR>", { desc = "[r]un lua [f]ile" })
+vim.keymap.set("n", "<leader>rl", ":.lua<CR>", { desc = "[r]un lua [l]ine" })
+vim.keymap.set("v", "<leader>rl", ":lua<CR>", { desc = "[r]un lua [l]ines" })
+vim.keymap.set("n", "<leader>lt", "<CMD>PlenaryBustedFile %<CR>", { desc = "[l]ua [t]est" })
+
+-- go specific stuff
 vim.keymap.set("n", "<leader>n", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
 
 vim.filetype.add({
