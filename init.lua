@@ -48,6 +48,12 @@ vim.opt.whichwrap:append("<>[]hl")
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+vim.o.foldmethod = "indent"
+vim.o.foldlevel = 999
+
+vim.keymap.set("n", "<Tab>", "za")
+-- for some reason, tab = ctrl+i in terminal codes or something
+vim.keymap.set("n", "<C-i>", "<C-i>")
 --[[
 ========== Key Maps ==========
 :help vim.keymap.set()

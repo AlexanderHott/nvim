@@ -150,6 +150,8 @@ return {
 					end,
 				},
 			})
+
+			require("lspconfig").racket_langserver.setup({})
 			-- vim.lsp.set_log_level("DEBUG")
 			-- local configs = require("lspconfig.configs")
 			-- local lspconfig = require("lspconfig")

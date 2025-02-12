@@ -18,7 +18,8 @@ return {
 	-- 	end,
 	-- },
 	{
-		dir = "~/Documents/code/personal/slides.nvim/",
+		"AlexanderHOtt/slides.nvim",
+		-- dir = "~/Documents/code/personal/slides.nvim/",
 		config = function()
 			local slides = require("slides")
 			local bun_executor = slides.create_system_executor({ "bun", "run" })
