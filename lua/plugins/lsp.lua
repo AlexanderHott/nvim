@@ -96,7 +96,19 @@ return {
 					},
 				},
 				-- TODO: LSPDEV
-				tailwindcss = {},
+				tailwindcss = {
+					settings = {
+						tailwindCSS = {
+							experimental = {
+								classRegex = {
+									"cn\\(([^)]*)\\)", -- matches `cn(...)`
+									"cva\\(([^)]*)\\)", -- matches `cn(...)`
+									-- "[\"'`]([^\"'`]*).*?[\"'`]", -- generic string match
+								},
+							},
+						},
+					},
+				},
 				-- TODO: LSPDEV
 				eslint = {},
 				astro = {},
@@ -128,6 +140,8 @@ return {
 						},
 					},
 				},
+
+				zls = {},
 			}
 
 			require("mason").setup()
@@ -139,6 +153,8 @@ return {
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 			require("mason-lspconfig").setup({
+				ensure_installed = servers,
+				automatic_installation = true,
 				handlers = {
 					function(server_name)
 						local server = servers[server_name] or {}
@@ -210,9 +226,13 @@ return {
 				typescriptreact = { "prettierd", "prettier", stop_after_first = true },
 				json = { "prettierd", "prettier", stop_after_first = true },
 				jsonc = { "prettierd", "prettier", stop_after_first = true },
+				astro = { "prettierd", "prettier", stop_after_first = true },
 				-- ["markdown.mdx"] = { "prettierd" },
 				-- markdown = { "prettierd" },
 				sql = { "sql_formatter" },
+				bash = { "shfmt", "shellcheck" },
+				zsh = { "shfmt", "shellcheck" },
+				sh = { "shfmt", "shellcheck" },
 			},
 		},
 	},
