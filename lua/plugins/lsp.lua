@@ -142,6 +142,8 @@ return {
 				},
 
 				zls = {},
+
+				cmake = {},
 			}
 
 			require("mason").setup()
@@ -212,11 +214,12 @@ return {
 				-- have a well standardized coding style.
 				local disable_filetypes = { c = true, cpp = true }
 				return {
-					timeout_ms = 1000,
+					timeout_ms = 2000,
 					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
 				}
 			end,
 			stop_after_first = true,
+			-- h: conform-formatters
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- python = { "isort", "black" }, -- isort AND black
@@ -227,12 +230,20 @@ return {
 				json = { "prettierd", "prettier", stop_after_first = true },
 				jsonc = { "prettierd", "prettier", stop_after_first = true },
 				astro = { "prettierd", "prettier", stop_after_first = true },
+				yaml = { "yamlfmt" },
+				c = { "clang-format" },
+				markdown = {
+					-- "prettierd",
+					"prettier",
+					-- stop_after_first = true
+				},
 				-- ["markdown.mdx"] = { "prettierd" },
 				-- markdown = { "prettierd" },
 				sql = { "sql_formatter" },
 				bash = { "shfmt", "shellcheck" },
 				zsh = { "shfmt", "shellcheck" },
 				sh = { "shfmt", "shellcheck" },
+				-- cmake = { "cmakelint" },
 			},
 		},
 	},
